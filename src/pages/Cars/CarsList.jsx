@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 const URI = "http://localhost:8080/api/cars";
 
 //https://medium.com/@bhairabpatra.iitd/crud-create-read-update-delete-application-in-react-566bf229aaee
@@ -48,8 +49,10 @@ const CarsList = () => {
                             <td>{item.color}</td>
                             <td>{item.name}</td>                        
                             <td>
-                            
+                            <Link to={`/edit-car/${item.id}`}>
                                 <i className="fa fa-pencil" aria-hidden="true">Edit</i>
+                            </Link>
+                            
                                 <i className="fa fa-trash-o" aria-hidden="true" onClick={() => handelDelete(item.id)}>Delete</i>
                             </td>
                         </tr>

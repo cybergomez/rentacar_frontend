@@ -2,8 +2,11 @@ import React from 'react';
 import { HashRouter, Route, Routes, Link } from "react-router-dom";
 import Home from '../pages/Home';
 import Cars from '../pages/Cars';
+import CreateCar from '../pages/Cars/CreateCar';
+import UpdateCar from '../pages/Cars/UpdateCar';
 import Persons from '../pages/Persons';
 import Rent from '../pages/Rent';
+
 
 const Navbar = () => {
     return(
@@ -31,7 +34,9 @@ const Navbar = () => {
                     <Route path="/home" element={<Home />}/>
                     <Route path="/rent" element={<Rent />}/>
                     <Route path="/cars" element={<Cars />}/>
-                    <Route path="/edit" element={<Persons />}/>
+                    <Route path="/create-car" element={<CreateCar />} />
+                    <Route path="/edit-car/:id" element={<UpdateCar />}/>
+                    
                     <Route path="/persons" element={<Persons />}/>
                     <Route path="/persons" element={<Persons />}/>
                     
