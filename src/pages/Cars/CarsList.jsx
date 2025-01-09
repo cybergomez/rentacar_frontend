@@ -11,10 +11,10 @@ const CarsList = () => {
 
     useEffect(() => {
         getCars();
-      }, []);
+    }, []);
 
-    const getCars = () => {
-        axios
+    const getCars = async () => {
+        await axios
             .get(URI)
             .then((res) => {
                 setCar(res.data);                
@@ -24,12 +24,28 @@ const CarsList = () => {
             })
     };
 
+    const deleteCar = async (id) => {
+        if (confirm("Realmente Quiere Eliminar el Registro: " + id)){
+            axios
+            .delete(`${URI}/${id}`)
+            .then((res) => {
+                console.log(res);
+                alert("El registro se borro satisfactoriamente");
+                getCars();
+                
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        }        
+    }
+
     if (car.length < 0){
-        return <h1>No existen carros !!!</h1>
+        return <h2>No existen carros !!!</h2>
     } else {
         return(
             <div>
-               <h1>Lista de Carros</h1>
+               <h2>Lista de Carros</h2>
                <table>
                 <thead>
                     <tr>
@@ -52,8 +68,9 @@ const CarsList = () => {
                             <Link to={`/edit-car/${item.id}`}>
                                 <i className="fa fa-pencil" aria-hidden="true">Edit</i>
                             </Link>
-                            
-                                <i className="fa fa-trash-o" aria-hidden="true" onClick={() => handelDelete(item.id)}>Delete</i>
+                            <Link>
+                               <i className="fa fa-trash-o" aria-hidden="true" onClick={() => deleteCar(item.id)}>Delete</i>
+                            </Link>
                             </td>
                         </tr>
                     );

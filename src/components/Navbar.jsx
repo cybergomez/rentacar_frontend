@@ -4,6 +4,8 @@ import Home from '../pages/Home';
 import Cars from '../pages/Cars';
 import CreateCar from '../pages/Cars/CreateCar';
 import UpdateCar from '../pages/Cars/UpdateCar';
+import DeleteCar from '../pages/Cars/DeleteCar';
+
 import Persons from '../pages/Persons';
 import Rent from '../pages/Rent';
 
@@ -36,9 +38,9 @@ const Navbar = () => {
                     <Route path="/cars" element={<Cars />}/>
                     <Route path="/create-car" element={<CreateCar />} />
                     <Route path="/edit-car/:id" element={<UpdateCar />}/>
+                    <Route path="/delete-car/:id" element={<DeleteCar />}/>
                     
-                    <Route path="/persons" element={<Persons />}/>
-                    <Route path="/persons" element={<Persons />}/>
+                    <Route path="/persons" element={<Persons />}/>                    
                     
                 </Routes>
             </div>
