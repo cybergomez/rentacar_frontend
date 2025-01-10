@@ -56,7 +56,7 @@ const CreateCar = () => {
 
     return (
         <div>
-            <h1>Crear Carro</h1>
+            <h1>New Car</h1>
             <form onSubmit={saveCar}>
                 <label>Marca:</label>
                 <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} />

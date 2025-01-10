@@ -8,6 +8,7 @@ import UpdateCar from './pages/Cars/UpdateCar';
 import DeleteCar from './pages/Cars/DeleteCar';
 import Persons from './pages/Persons';
 import Rent from './pages/Rent';
+import CreateRent from './pages/Rent/CreateRent';
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
             <Route path="/create-car" element={<CreateCar />} />
             <Route path="/edit-car/:id" element={<UpdateCar />} />
             <Route path="/delete-car/:id" element={<DeleteCar />} />
+            <Route path="/create-rent" element={<CreateRent />} />
             <Route path="/persons" element={<Persons />} />
+            
           </Routes>
         </div>
       </div>
