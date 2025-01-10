@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { Component, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import SearchCar from './SearchCar';
 const URI = "http://localhost:8080/api/cars";
 
-//https://medium.com/@bhairabpatra.iitd/crud-create-read-update-delete-application-in-react-566bf229aaee
 
 const CarsList = () => {
 
@@ -46,6 +46,7 @@ const CarsList = () => {
         return(
             <div>
                <h2>Lista de Carros</h2>
+               <SearchCar />
                <table>
                 <thead>
                     <tr>
