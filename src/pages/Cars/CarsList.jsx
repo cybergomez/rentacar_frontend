@@ -44,28 +44,28 @@ const CarsList = () => {
         return <h2>No existen carros !!!</h2>
     } else {
         return(
-            <div>
+            <div className='grid auto-rows-min gap-2 text-center'>
                <h2>Lista de Carros</h2>
                <SearchCar />
-               <table>
+               <table className='border-collapse border border-slate-400'>
                 <thead>
                     <tr>
-                    <th>ID</th>
-                    <th>Marca</th>
-                    <th>Color</th>
-                    <th>Nombre</th>
-                    <th>Actions</th>
+                    <th className='px-4 py-3'>ID</th>
+                    <th className='px-4 py-3'>Marca</th>
+                    <th className='px-4 py-3'>Color</th>
+                    <th className='px-4 py-3'>Nombre</th>
+                    <th className='px-4 py-3'>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {car?.map((item, i) => {
                     return (
                         <tr>                           
-                            <td>{item.id}</td>
-                            <td>{item.brand}</td>
-                            <td>{item.color}</td>
-                            <td>{item.name}</td>                        
-                            <td>
+                            <td className='px-4 py-3'>{item.id}</td>
+                            <td className='px-4 py-3'>{item.brand}</td>
+                            <td className='px-4 py-3'>{item.color}</td>
+                            <td className='px-4 py-3'>{item.name}</td>                        
+                            <td className='px-4 py-3'>
                             <Link to={`/edit-car/${item.id}`}>
                                 <i className="fa fa-pencil" aria-hidden="true">Edit</i>
                             </Link>

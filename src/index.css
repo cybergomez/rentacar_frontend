@@ -1,4 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal;
+    transition: 0.2s;
+  }
+  *::-webkit-scrollbar {
+    width: 0.3rem;
+    height: 0.3rem;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(33,33,33,0.5);
+    border-radius: 10px;
+  }
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Inter", serif;
+  }
+}
+
+@layer components {
+  * {
+    @apply text-[1rem] leading-none font-normal text-slate-900 dark:text-slate-100;
+  }
+  h1 {
+    @apply text-[2rem] font-bold;
+  }
+  h2 {
+    @apply text-[1.8rem] font-bold;
+  }
+  h3 {
+    @apply text-[1.6rem] font-semibold;
+  }
+  h4 {
+    @apply text-[1.4rem] font-semibold;
+  }
+  h5 {
+    @apply text-[1.2rem] font-semibold;
+  }
+  h6 {
+    @apply text-[1.125rem] font-semibold;
+  }
+  p {
+    @apply text-[1rem] text-slate-800 dark:text-slate-200 font-medium;
+  }
+  label {
+    @apply text-[1rem] font-medium;
+  }
+  legend {
+    @apply text-[1rem] font-medium;
+  }
+  span {
+    @apply text-[1rem] font-normal;
+  }
+  a {
+    @apply text-[1rem] font-semibold;
+  }
+  small {
+    @apply text-[1rem] font-medium;
+  }
+  strong {
+    @apply text-[1rem] font-semibold;
+  }
+  button {
+    @apply font-semibold;
+  }
+  input {
+    @apply text-[1rem] bg-transparent rounded-[inherit] h-full w-full px-[15px] focus:outline-none outline-none;
+  }
+  textarea {
+    @apply !w-full !h-auto text-[14px] bg-transparent px-[15px] py-[10px] leading-tight resize-none focus:outline-none;
+  }
+  body {
+    @apply bg-slate-100 dark:bg-slate-900
+  }
+}
 

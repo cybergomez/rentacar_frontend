@@ -1,53 +1,26 @@
 import React from 'react';
-import { HashRouter, Route, Routes, Link } from "react-router-dom";
-import Home from '../pages/Home';
-import Cars from '../pages/Cars';
-import CreateCar from '../pages/Cars/CreateCar';
-import UpdateCar from '../pages/Cars/UpdateCar';
-import DeleteCar from '../pages/Cars/DeleteCar';
-
-import Persons from '../pages/Persons';
-import Rent from '../pages/Rent';
-
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    return(
-        <HashRouter>
-            <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/home">Home</Link>                        
-                        </li>
-                        <li>
-                            <Link to="/rent">Rent</Link>
-                        </li>
-                        <li>
-                            <Link to="/cars">Cars</Link>                    
-                        </li>
-                        <li>
-                            <Link to="/persons">Persons</Link>
-                        </li>
-                    </ul>
-                </nav>
+    const links = [
+        { path: "/home", label: "Home" },
+        { path: "/rent", label: "Rent" },
+        { path: "/cars", label: "Cars" },
+        { path: "/persons", label: "Persons" },
+    ];
 
-                <Routes>
-                    <Route path="/" element={<Home />}/>    
-                    <Route path="/home" element={<Home />}/>
-                    <Route path="/rent" element={<Rent />}/>
-                    <Route path="/cars" element={<Cars />}/>
-                    <Route path="/create-car" element={<CreateCar />} />
-                    <Route path="/edit-car/:id" element={<UpdateCar />}/>
-                    <Route path="/delete-car/:id" element={<DeleteCar />}/>
-                    
-                    <Route path="/persons" element={<Persons />}/>                    
-                    
-                </Routes>
-            </div>
-
-
-        </HashRouter>
-
+    return (
+        <nav className='h-[50px] bg-black grid items-center'>
+            <ul className='flex justify-center gap-4'>
+                {links.map(link => (
+                    <li key={link.path}>
+                        <Link to={link.path}>
+                            <p className="font-medium text-white">{link.label}</p>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     );
 };
 
