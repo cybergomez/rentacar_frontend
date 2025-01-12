@@ -88,3 +88,27 @@
   }
 }
 
+
+@layer components {
+  .btn {
+    @apply text-white rounded-xl px-4 py-3 text-center
+  }
+  .btn-sucess {
+    @apply btn bg-emerald-500
+  }
+  .btn-danger {
+    @apply btn bg-rose-500
+  }
+  .btn-info {
+    @apply btn bg-sky-500
+  }
+  input {
+    @apply outline-none focus:outline-none border border-slate-400 placeholder:text-slate-500 px-4 py-2 rounded-lg
+  }
+  th {
+    @apply px-4 py-2 bg-slate-300 font-bold
+  }
+  td {
+    @apply px-4 py-2
+  }
+}

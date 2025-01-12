@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const links = [
-        { path: "/home", label: "Home" },
-        { path: "/rent", label: "Rent" },
-        { path: "/cars", label: "Cars" },
-        { path: "/persons", label: "Persons" },
+        { path: "/home", label: "Inicio" },
+        { path: "/rent", label: "Rentas" },
+        { path: "/cars", label: "Carros" },
+        { path: "/persons", label: "Personas" },
     ];
 
     return (

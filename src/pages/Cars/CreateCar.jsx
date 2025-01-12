@@ -42,20 +42,19 @@ const CreateCar = () => {
     }
 
     return (
-        <div>
-            <h1>New Car</h1>
-            <form onSubmit={saveCar}>
+        <div className='p-5 grid auto-rows-min gap-4'>
+            <h1>Nuevo registro de auto</h1>
+            <form onSubmit={saveCar} className='grid gap-2 grid-cols-[max-content_auto]'>
                 <label>Nombre:</label>
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
                 <label>Marca:</label>
                 <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} required/>
                 <label>Color:</label>
-                <input type="text" value={color} onChange={(e) => setColor(e.target.value)} required/>
-                <Link to="/cars" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >
+                <input type="text" value={color} onChange={(e) => setColor(e.target.value)} />
+                <Link to="/cars" className="btn-danger" >
                     Cancelar
                 </Link>
-                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border
-                                     border-green-700 rounded" type="submit" >Save Car</button>
+                <button type="submit" className='btn-sucess'>Crear Carro</button>
             </form>
         </div>
     );

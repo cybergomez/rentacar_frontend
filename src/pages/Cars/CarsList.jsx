@@ -7,7 +7,6 @@ const CarsList = () => {
     const [car, setCar] = useState([]);
 
     const handleDelete = (carId) => {
-      //  console.log("Sending by table:", carId, car)
         const updatedCars = car.filter((c) => c.id !== carId);
         setCar(updatedCars);
     };
@@ -15,11 +14,10 @@ const CarsList = () => {
     if (car.length < 0) {
         return <h2>No existen carros !!!</h2>
     } else {
-        return (
-            <div className='grid auto-rows-min gap-2 text-center'>
-                <h2>Cars List</h2>
-                <SearchCar onSearch={setCar} />
-                <TableCars cars={car} onDelete={handleDelete} />
+        return(
+            <div className='mt-[20px] grid gap-[20px] auto-rows-min text-center'>
+               <SearchCar onSearch={ setCar }/>
+               <TableCars cars={ car } onDelete={handleDelete}/>
             </div>
         );
 
