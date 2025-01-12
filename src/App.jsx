@@ -3,10 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cars from './pages/Cars';
+import Persons from './pages/Persons';
 import CreateCar from './pages/Cars/CreateCar';
 import UpdateCar from './pages/Cars/UpdateCar';
 import DeleteCar from './pages/Cars/DeleteCar';
-import Persons from './pages/Persons';
+import CreatePerson from './pages/Persons/CreatePerson';
+import UpdatePerson from './pages/Persons/UpdatePerson';
+import DeletePerson from './pages/Persons/DeletePerson';
+
+
 import Rent from './pages/Rent';
 import CreateRent from './pages/Rent/CreateRent';
 
@@ -24,6 +29,11 @@ function App() {
             <Route path="/create-car" element={<CreateCar />} />
             <Route path="/edit-car/:id" element={<UpdateCar />} />
             <Route path="/delete-car/:id" element={<DeleteCar />} />
+
+            <Route path="/create-person" element={<CreatePerson />} />
+            <Route path="/edit-person/:id" element={<UpdatePerson />} />
+            <Route path="/delete-person/:id" element={<DeletePerson />} />
+
             <Route path="/create-rent" element={<CreateRent />} />
             <Route path="/persons" element={<Persons />} />
             
