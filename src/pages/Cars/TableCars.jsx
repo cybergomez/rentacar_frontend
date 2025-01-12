@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DeleteCar from "./DeleteCar";
 
-const TableCars = ({ cars }) => {
+const TableCars = ({ cars, onDelete }) => {
+
+    const handleDelete = (carId) => {
+        console.log("Sending by delete button:", carId) // Remove in production
+        onDelete(carId);
+    };
 
     if (cars.length < 0){
         return <h2>No existen carros !!!</h2>
@@ -20,7 +25,7 @@ const TableCars = ({ cars }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        { cars.map((item, i) => {
+                        { cars.map((item, index) => {
                             return (
 
                             <tr>                           
@@ -36,7 +41,7 @@ const TableCars = ({ cars }) => {
                                 </Link>
                                 <Link>
                                 {/* <i className="fa fa-trash-o" aria-hidden="true" onClick={() => deleteCar(item.id)}>Delete</i> */}
-                                <DeleteCar carId={item.id}/>
+                                <DeleteCar carId={item.id} onDelete={handleDelete}/>
                                 </Link>
                                 </td>
                             </tr>

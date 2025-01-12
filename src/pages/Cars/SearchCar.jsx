@@ -5,29 +5,28 @@ const URI = "http://localhost:8080/api/cars";
 
 const SearchCar = ({ onSearch }) => {
 
-  
+
   const [name, setName] = useState("");
   const [car, setCar] = useState([]);
 
 
   useEffect(() => {
-       getCars();
+    getCars();
   }, []);
 
-  const getCars = async () => {  
-   
-      const endpoint = name.trim() === '' ? URI : `${URI}/findbyname/${name}`;
-    
-      await axios
-        .get(endpoint)
-        .then((res) => {
-            setCar(res.data); 
-            onSearch(res.data); 
-            console.log(res);                   
-        })
-        .catch((err) =>{
-            console.log(err);
-        })
+  const getCars = async () => {
+
+    const endpoint = name.trim() === '' ? URI : `${URI}/findbyname/${name}`;
+
+    await axios
+      .get(endpoint)
+      .then((res) => {
+        setCar(res.data);
+        onSearch(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
 
   }
 
