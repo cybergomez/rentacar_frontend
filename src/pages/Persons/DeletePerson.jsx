@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { Component } from 'react'
+import React from 'react';
+import Swal from 'sweetalert2';
 
 const URI = "http://localhost:8080/api/persons";
 
@@ -8,23 +9,21 @@ const DeletePerson = ({ personId, onDelete }) => {
     const deletePerson = async (personId) => {
         if (confirm("Desea Eliminar el registro: "+personId+" de la Persona?" )){
             try {
-                await axios.delete(`${URI}/${personId}`);
-                alert("El registro se borró satisfactoriamente");
+                console.log("Url: "+URI);
+                console.log("Url armada: "+`${URI}/delete/${personId}`);
+                await axios.delete(`${URI}/delete/${personId}`);
+                Swal.fire({
+                    title: 'Delete Person!',
+                    text: 'El registro de la persona se borró satisfactoriamente',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                })
                 onDelete(personId);
             } catch (personId) {
+                alert("Pasa capturando error.");
                 console.error(error);
                 alert("Error al eliminar el registro.");
             }
-/*            await axios
-            .delete(`${URI}/${personId}`)
-            .then((res) => {
-                console.log(res);
-                alert("El registro se borro satisfactoriamente.");
-                onDelete(personId);
-            })
-            .catch((error) => {
-                console.log(error);
-            });*/
         }        
     };
 
@@ -36,7 +35,6 @@ const DeletePerson = ({ personId, onDelete }) => {
             Delete Person
         </button>
     );
-
 };
 
 

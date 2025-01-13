@@ -41,7 +41,7 @@ const TablePersons = ({ persons, onDelete}) => {
                                 </Link>
                                 <Link>
                                 {/* <i className="fa fa-trash-o" aria-hidden="true" onClick={() => deletePerson(item.id)}>Delete</i> */}
-                                <DeletePerson personId={item.id}/>
+                                <DeletePerson personId={item.id} onDelete={handleDelete}/>
                                 </Link>
                                 </td>
                             </tr>

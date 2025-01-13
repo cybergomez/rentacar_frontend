@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { Component, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const URI = "http://localhost:8080/api/persons";
 
@@ -12,20 +13,24 @@ const UpdatePerson = (props) => {
     const [phone, setPhone] = useState("");
     
     const { id } = useParams();
-
     const navigate = useNavigate();
 
     const Update = async () => {
         event.preventDefault();
         await axios
-        .put(`${URI}/${id}`, {
+        .put(`${URI}/update/${id}`, {
             name: name,
             address: address,
             phone: phone
         })
         .then((response) => {
             console.log(response.data);
-            alert("Person updated successfully");
+            Swal.fire({
+                title: 'Update Person!',
+                text: 'Person updated successfully',
+                icon: 'success',
+                confirmButtonText: 'Done'
+            })
             navigate("/persons");
         })
         .catch((error) => {
@@ -40,7 +45,7 @@ const UpdatePerson = (props) => {
     const getUserById = async () => {
         event.preventDefault();
         await axios
-            .get(`${URI}/${id}`)
+            .get(`${URI}/get/${id}`)
             .then((res) => {
                 setName(res.data.name);
                 setAddress(res.data.address);
@@ -64,7 +69,11 @@ const UpdatePerson = (props) => {
                     <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
                     <label>Telefono:</label>
                     <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                    <button type="submit">Actualizar Persona</button>
+                    <Link to="/persons" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >
+                        Cancelar
+                    </Link>
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border
+                                     border-green-700 rounded" type="submit">Update Person</button>
                 </form>
             </div>
         </div>
