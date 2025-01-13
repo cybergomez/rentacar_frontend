@@ -5,11 +5,11 @@ import DeleteCar from "./DeleteCar";
 const TableCars = ({ cars, onDelete }) => {
 
     const handleDelete = (carId) => {
-        console.log("Sending by delete button:", carId) // Remove in production
+        console.log("Sending by delete button:", carId); 
         onDelete(carId);
     };
 
-    if (cars.length < 0){
+    if (cars.length === 0){
         return <h2>No existen carros !!!</h2>
     } else {
         return(
@@ -25,19 +25,19 @@ const TableCars = ({ cars, onDelete }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        { cars.map((item, index) => {
+                        { cars.map((item) => {
                             return (
 
-                            <tr>                           
-                                <td className='px-4 py-3'>{item.id}</td>
-                                <td className='px-4 py-3'>{item.brand}</td>
-                                <td className='px-4 py-3'>{item.color}</td>
-                                <td className='px-4 py-3'>{item.name}</td>                        
+                            <tr key={item.id}>                           
+                                <td className='px-4 py-3' >{item.id}</td>
+                                <td className='px-4 py-3' >{item.brand}</td>
+                                <td className='px-4 py-3' >{item.color}</td>
+                                <td className='px-4 py-3' >{item.name}</td>                        
                                 <td className='px-4 py-3'>
                                     
                                 <Link to={`/edit-car/${item.id}`}>
                                     {/* <i className="fa fa-pencil" aria-hidden="true">Edit</i> */}
-                                    <button clasName="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Edit</button>
+                                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Edit</button>
                                 </Link>
                                 <Link>
                                 {/* <i className="fa fa-trash-o" aria-hidden="true" onClick={() => deleteCar(item.id)}>Delete</i> */}
@@ -46,7 +46,6 @@ const TableCars = ({ cars, onDelete }) => {
                                 </td>
                             </tr>
                             );
-
                         })}                            
                     </tbody>
                 </table>                    

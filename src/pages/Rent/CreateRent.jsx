@@ -1,24 +1,67 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const URI = "http://localhost:8080/api/cars";
+const URI = "http://localhost:8080/api/rentals";
+const URIcars = "http://localhost:8080/api/cars";
+const URIpersons = "http://localhost:8080/api/persons/getAll";
 
 const CreateRent = () => {
     
-    
     //Definir variables
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState(""); //person
     const [car, setCar] = useState("");
     const [days, setDays] = useState("");
     const [price, setPrice] = useState("");
     const [total, setTotal] = useState("");
+
+    const [cars, setCars] = useState([]);
+    const [persons, setPersons] = useState([]);
+    
   
     const navigate = useNavigate();
 
-    const saveRent = async () => {
+    //Consultar Datos Carros y Personas
+    useEffect(() => {
+        getCars();
+        getPersons();
+      }, []);
 
+    //Consultar Cars
+    const getCars = async () => {
+          await axios
+          .get(URIcars)
+          .then((res) => {
+            setCars(res.data); 
+            console.log(res.data);          
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+    
+      }
+
+    //Consultar Persons
+    const getPersons = async () => {
         await axios
+        .get(URIpersons)
+        .then((res) => {
+            setPersons(res.data);    
+            console.log(res.data)       
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+  
+    }
+
+
+    const saveRent = async () => {
+        event.preventDefault();
+
+        try {
+            await axios
             .post(URI, {
                 user: user,
                 car: car,
@@ -35,27 +78,53 @@ const CreateRent = () => {
                 console.error(error);
                 alert("Error creating Rent");
             });
+        } catch (error) {
+            console.error("Error creating rent:", error);
+            alert("Error creating Rent");
+        }
+        
     }
 
   return (
     <div>
             <h1>New Rent</h1>
             <form onSubmit={saveRent}>
-                <label>User:</label>
-                <input type="text" value={user} onChange={(e) => setUser(e.target.value)} />
+
+                <label>Person:</label>
+                <select value={user} onChange={(e) => setUser(e.target.value)}>
+                <option value="">Select a person</option>
+                { persons.map((item) => (
+                    <option key={item.id} value={item.id}>
+                    {item.name}
+                    </option>
+                ))}
+                </select>
+
                 <label>Car:</label>
-                <input type="text" value={car} onChange={(e) => setCar(e.target.value)} />
+                <select value={car} onChange={(e) => setCar(e.target.value)}>
+                <option value="">Select a car</option>
+                {cars.map((item) => (
+                    <option key={item.id} value={item.id}>
+                    {item.name}
+                    </option>
+                ))}
+                </select>
+
                 <label>Days:</label>
                 <input type="text" value={days} onChange={(e) => setDays(e.target.value)} />
                 <label>Price:</label>
                 <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
                 <label>Total:</label>
-                <input type="text" value={total} onChange={(e) => setTotal(e.target.value)} />
-                <button type="submit">Save Rent</button>
+                <input type="text" value={total} onChange={(e) => setTotal(e.target.value)} /> 
+                <Link to="/rent" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >          
+                     Cancelar
+                </Link>
+                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border
+                                     border-green-700 rounded" type="submit" >Save Rent</button>
             </form>
         </div>
 
   );
-}
+};
 
 export default CreateRent;

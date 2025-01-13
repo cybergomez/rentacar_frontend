@@ -8,7 +8,7 @@ const DeleteCar = ({ carId, onDelete }) => {
     const deleteCar = async (carId) => {
         if (confirm("Realmente Quiere Eliminar el Registro: " + carId)) {
             try {
-                // await axios.delete(`${URI}/${carId}`);
+                await axios.delete(`${URI}/${carId}`);
                 alert("El registro se borró satisfactoriamente");
                 onDelete(carId);
             } catch (error) {
