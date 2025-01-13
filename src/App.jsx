@@ -12,6 +12,8 @@ import UpdatePerson from './pages/Persons/UpdatePerson';
 import DeletePerson from './pages/Persons/DeletePerson';
 import Rent from './pages/Rent';
 import CreateRent from './pages/Rent/CreateRent';
+import DeleteRent from './pages/Rent/DeleteRent';
+import UpdateRent from './pages/Rent/UpdateRent';
 
 function App() {
   return (
@@ -31,9 +33,11 @@ function App() {
             <Route path="/create-person" element={<CreatePerson />} />
             <Route path="/edit-person/:id" element={<UpdatePerson />} />
             <Route path="/delete-person/:id" element={<DeletePerson />} />
+            <Route path="/persons" element={<Persons />} />
 
             <Route path="/create-rent" element={<CreateRent />} />
-            <Route path="/persons" element={<Persons />} />
+            <Route path="/edit-rent/:id" element={<UpdateRent />} />
+            <Route path="/delete-rent/:id" element={<DeleteRent />} />
             
           </Routes>
         </div>

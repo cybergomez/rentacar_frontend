@@ -3,14 +3,14 @@ import React from 'react'
 
 const URI = "http://localhost:8080/api/rentals";
 
-const DeleteRent = ({ rentId, onDelete }) => {
+const DeleteRent = ({ rentId, onDeleteRent }) => {
 
     const deleteRent = async (rentId) => {
         if (confirm("Realmente Quiere Eliminar el Registro: " + rentId)) {
             try {
                 await axios.delete(`${URI}/${rentId}`);
                 alert("El registro se borró satisfactoriamente");
-                onDelete(rentId);
+                onDeleteRent(rentId);
             } catch (error) {
                 console.error(error);
                 alert("Error al eliminar el registro.");

@@ -26,7 +26,9 @@ const CreateRent = () => {
     useEffect(() => {
         getCars();
         getPersons();
-      }, []);
+        const totalRenta = price * days;
+        setTotal(totalRenta);
+      }, [price, days]);
 
     //Consultar Cars
     const getCars = async () => {
@@ -34,7 +36,7 @@ const CreateRent = () => {
           .get(URIcars)
           .then((res) => {
             setCars(res.data); 
-            console.log(res.data);          
+            //console.log(res.data);          
           })
           .catch((err) => {
             console.log(err);
@@ -48,7 +50,7 @@ const CreateRent = () => {
         .get(URIpersons)
         .then((res) => {
             setPersons(res.data);    
-            console.log(res.data)       
+            //console.log(res.data)       
         })
         .catch((err) => {
           console.log(err);
@@ -56,11 +58,8 @@ const CreateRent = () => {
   
     }
 
-
     const saveRent = async () => {
-        event.preventDefault();
-
-        try {
+      event.preventDefault()
             await axios
             .post(URI, {
                 user: user,
@@ -70,7 +69,7 @@ const CreateRent = () => {
                 total: total
             })
             .then((response) => {
-                console.log(response.data);
+                //console.log(response.data);
                 alert("Rent created successfully");
                 navigate("/rent");
             })
@@ -78,10 +77,7 @@ const CreateRent = () => {
                 console.error(error);
                 alert("Error creating Rent");
             });
-        } catch (error) {
-            console.error("Error creating rent:", error);
-            alert("Error creating Rent");
-        }
+       
         
     }
 
@@ -89,7 +85,6 @@ const CreateRent = () => {
     <div>
             <h1>New Rent</h1>
             <form onSubmit={saveRent}>
-
                 <label>Person:</label>
                 <select value={user} onChange={(e) => setUser(e.target.value)}>
                 <option value="">Select a person</option>
@@ -111,11 +106,11 @@ const CreateRent = () => {
                 </select>
 
                 <label>Days:</label>
-                <input type="text" value={days} onChange={(e) => setDays(e.target.value)} />
+                <input type="number" value={days} onChange={(e) => setDays(e.target.value)} placeholder="Ingrese los dias"/>
                 <label>Price:</label>
-                <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
+                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Ingrese el precio"/>
                 <label>Total:</label>
-                <input type="text" value={total} onChange={(e) => setTotal(e.target.value)} /> 
+                <input type="number" value={total} readOnly onChange={(e) => setTotal(e.target.value)} /> 
                 <Link to="/rent" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >          
                      Cancelar
                 </Link>

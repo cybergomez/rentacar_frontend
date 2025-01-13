@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Component, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const URI = "http://localhost:8080/api/cars";
@@ -9,7 +9,7 @@ const UpdateCar = (props) => {
     const [brand, setBrand] = useState("");
     const [color, setColor] = useState("");
     const [name, setName] = useState("");
-    
+
     const { id } = useParams();
 
     const navigate = useNavigate();
@@ -17,23 +17,23 @@ const UpdateCar = (props) => {
     const Update = async () => {
         event.preventDefault();
         await axios
-        .put(`${URI}/${id}`, {
-            brand: brand,
-            color: color,
-            name: name
-        })
-        .then((response) => {
-            console.log(response.data);
-            alert("Car updated successfully");
-            navigate("/cars");
-        })
-        .catch((error) => {
-            console.log(error);
-        }); 
+            .put(`${URI}/${id}`, {
+                brand: brand,
+                color: color,
+                name: name
+            })
+            .then((response) => {
+                //  console.log(response.data);
+                alert("Car updated successfully");
+                navigate("/cars");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     useEffect(() => {
-        getUserById()
+        getUserById();
     }, []);
 
     const getUserById = async () => {
@@ -45,7 +45,7 @@ const UpdateCar = (props) => {
                 setColor(res.data.color);
                 setName(res.data.name);
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log(error);
             });
 
@@ -55,7 +55,7 @@ const UpdateCar = (props) => {
     return (
         <div>
             <div>
-                <h1>Update Cars</h1>            
+                <h1>Update Cars</h1>
                 <form onSubmit={Update}>
                     <label>Marca:</label>
                     <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} />
@@ -63,8 +63,8 @@ const UpdateCar = (props) => {
                     <input type="text" value={color} onChange={(e) => setColor(e.target.value)} />
                     <label>Nombre:</label>
                     <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    <Link to="/cars" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >          
-                     Cancelar
+                    <Link to="/cars" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >
+                        Cancelar
                     </Link>
                     <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border
                                      border-green-700 rounded" type="submit">Update Car</button>

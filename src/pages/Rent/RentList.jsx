@@ -12,7 +12,7 @@ const RentList = () => {
     
     const [rent, setRent] = useState([]);
 
-    //
+    //Tablas
      const [user, setUser] = useState([]); //person
      const [car, setCars] = useState([]);
     //
@@ -28,7 +28,7 @@ const RentList = () => {
           .get(URIcars)
           .then((res) => {
             setCars(res.data); 
-            console.log(res.data);          
+           // console.log(res.data);          
           })
           .catch((err) => {
             console.log(err);
@@ -36,13 +36,13 @@ const RentList = () => {
     
       }
 
-    //Consultar Persons
+    //Consultar Personas
     const getPersons = async () => {
         await axios
         .get(URIpersons)
         .then((res) => {
             setUser(res.data);    
-            console.log(res.data)       
+           // console.log(res.data)       
         })
         .catch((err) => {
           console.log(err);
@@ -51,7 +51,7 @@ const RentList = () => {
     }
 
     const handleDeleteRent = (rentId) => {
-        console.log("Sending by table:", rentId, rent) // Remove in production
+       // console.log("Sending by table:", rentId, rent) 
         const updatedRent = rent.filter((c) => c.id !== rentId);
         setRent(updatedRent);
     };

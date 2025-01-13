@@ -5,52 +5,52 @@ import DeleteCar from "./DeleteCar";
 const TableCars = ({ cars, onDelete }) => {
 
     const handleDelete = (carId) => {
-        console.log("Sending by delete button:", carId); 
+      //  console.log("Sending by delete button:", carId);
         onDelete(carId);
     };
 
-    if (cars.length === 0){
+    if (cars.length === 0) {
         return <h2>No existen carros !!!</h2>
     } else {
-        return(
+        return (
             <div className='grid auto-rows-min gap-2 text-center'>
+
                 <table className='border-collapse border border-slate-400'>
                     <thead>
                         <tr>
-                        <th className='px-4 py-3'>ID</th>
-                        <th className='px-4 py-3'>Marca</th>
-                        <th className='px-4 py-3'>Color</th>
-                        <th className='px-4 py-3'>Nombre</th>
-                        <th className='px-4 py-3'>Actions</th>
+                            <th className='px-4 py-3'>ID</th>
+                            <th className='px-4 py-3'>Nombre</th>
+                            <th className='px-4 py-3'>Marca</th>
+                            <th className='px-4 py-3'>Color</th>
+                            <th className='px-4 py-3'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        { cars.map((item) => {
+                        {cars.map((item) => {
                             return (
 
-                            <tr key={item.id}>                           
-                                <td className='px-4 py-3' >{item.id}</td>
-                                <td className='px-4 py-3' >{item.brand}</td>
-                                <td className='px-4 py-3' >{item.color}</td>
-                                <td className='px-4 py-3' >{item.name}</td>                        
-                                <td className='px-4 py-3'>
-                                    
-                                <Link to={`/edit-car/${item.id}`}>
-                                    {/* <i className="fa fa-pencil" aria-hidden="true">Edit</i> */}
-                                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Edit</button>
-                                </Link>
-                                <Link>
-                                {/* <i className="fa fa-trash-o" aria-hidden="true" onClick={() => deleteCar(item.id)}>Delete</i> */}
-                                <DeleteCar carId={item.id} onDelete={handleDelete}/>
-                                </Link>
-                                </td>
-                            </tr>
+                                <tr key={item.id}>
+                                    <td className='px-4 py-3' >{item.id}</td>
+                                    <td className='px-4 py-3' >{item.name}</td>
+                                    <td className='px-4 py-3' >{item.brand}</td>
+                                    <td className='px-4 py-3' >{item.color}</td>
+                                    <td className='px-4 py-3'>
+
+                                        <Link to={`/edit-car/${item.id}`}>
+                                            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Edit</button>
+                                        </Link>
+                                        <Link>
+                                            <DeleteCar carId={item.id} onDelete={handleDelete} />
+                                        </Link>
+                                    </td>
+                                </tr>
                             );
-                        })}                            
+                        })}
                     </tbody>
-                </table>                    
-            </div>                
-        );    }
+                </table>
+            </div>
+        );
+    }
 };
 
 export default TableCars;

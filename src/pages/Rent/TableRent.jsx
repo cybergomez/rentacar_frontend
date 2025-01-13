@@ -5,16 +5,10 @@ import DeleteRent from './DeleteRent';
 const TableRent = ({ rents , cars, users, onDeleteRent }) => {
 
   const handleDeleteRent = (rentId) => {
-    console.log("Sending by delete button:", rentId); 
+    //console.log("Sending by delete button:", rentId); 
     onDeleteRent(rentId);
   };
 
-  // if (!Array.isArray(rents) || rents.length === 0) {
-  //   return <h2>No existen rentas registradas</h2>;
-  // }
-  //alert(rents.length);
-
-  
 
   if (rents.length === 0) {
     return <h2>No existen rentas registrados</h2>
@@ -22,7 +16,6 @@ const TableRent = ({ rents , cars, users, onDeleteRent }) => {
     return(
       
       <div className='grid auto-rows-min gap-2 text-center'>
-       
                 <table className='border-collapse border border-slate-400'>
                     <thead>
                         <tr>
@@ -50,12 +43,10 @@ const TableRent = ({ rents , cars, users, onDeleteRent }) => {
                                 <td className='px-4 py-3' >
                                     
                                 <Link to={`/edit-rent/${item.id}`}>
-                                    {/* <i className="fa fa-pencil" aria-hidden="true">Edit</i> */}
                                     <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border
                                      border-green-700 rounded">Edit</button>
                                 </Link>
                                 
-                                {/* <i className="fa fa-trash-o" aria-hidden="true" onClick={() => deleteCar(item.id)}>Delete</i> */}
                                 <DeleteRent rentId={item.id} onDeleteRent={handleDeleteRent}/>
                                 
                                 </td>
