@@ -64,11 +64,9 @@ const SearchRent = ({ onSearchRent }) => {
     return (
         <div>
             <div className="flex gap-2">
-                <input className="border border-slate-800 rounded-xl px-5 py-3"
-                    type="number" placeholder="Id del Alquiler" value={id}
+                <input type="number" placeholder="Id del Alquiler" value={id}
                     onChange={(e) => setId(e.target.value)}></input>
-                <button className="bg-slate-800 darK:bg-slate-200 text-slate-200 
-                    darK:text-slate-900 rounded-xl px-5 py-3"
+                <button className="bg-slate-800 btn"
                     onClick={getRents}>Buscar</button>
             </div>
         </div>

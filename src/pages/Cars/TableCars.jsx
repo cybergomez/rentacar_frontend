@@ -35,9 +35,7 @@ const TableCars = ({ cars, onDelete }) => {
                     <Link to={`/edit-car/${item.id}`}>
                       <button className="btn-info">Editar</button>
                     </Link>
-                    <Link>
-                      <DeleteCar carId={item.id} onDelete={handleDelete} />
-                    </Link>
+                    <DeleteCar carId={item.id} onDelete={handleDelete} />
                   </td>
                 </tr>
               );

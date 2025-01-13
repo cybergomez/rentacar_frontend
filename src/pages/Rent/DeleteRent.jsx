@@ -10,7 +10,6 @@ const DeleteRent = ({ rentId, onDeleteRent }) => {
         if (confirm("Realmente Quiere Eliminar el Registro: " + rentId)) {
             try {
                 await axios.delete(`${URI}/${rentId}`);
-                //alert("El registro se borró satisfactoriamente");
                 Swal.fire({
                     title: 'Delete Rent!',
                     text: 'El registro se borró satisfactoriamente',
@@ -27,7 +26,7 @@ const DeleteRent = ({ rentId, onDeleteRent }) => {
 
     return (
         <button
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded"
+            className="btn-danger"
             onClick={() => deleteRent(rentId)}
         >
             Delete Rent 

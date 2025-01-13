@@ -10,7 +10,6 @@ const DeleteCar = ({ carId, onDelete }) => {
         if (confirm("Realmente Quiere Eliminar el Registro: " + carId)) {
             try {
                 await axios.delete(`${URI}/${carId}`);
-                //alert("El registro se borró satisfactoriamente");
                 Swal.fire({
                     title: 'Delete Car!',
                     text: 'El registro se borró satisfactoriamente',
