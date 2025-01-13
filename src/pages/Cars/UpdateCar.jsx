@@ -64,12 +64,12 @@ const UpdateCar = (props) => {
             <div>
                 <h1>Update Cars</h1>
                 <form onSubmit={Update}>
-                    <label>Marca:</label>
-                    <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} />
-                    <label>Color:</label>
-                    <input type="text" value={color} onChange={(e) => setColor(e.target.value)} />
                     <label>Nombre:</label>
-                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
+                    <label>Marca:</label>
+                    <input type="text" value={brand} onChange={(e) => setBrand(e.target.value)} required/>
+                    <label>Color:</label>
+                    <input type="text" value={color} onChange={(e) => setColor(e.target.value)} required/>
                     <Link to="/cars" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >
                         Cancelar
                     </Link>

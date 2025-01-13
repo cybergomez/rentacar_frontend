@@ -70,8 +70,6 @@ const CreateRent = () => {
                 total: total
             })
             .then((response) => {
-                //console.log(response.data);
-                alert("Rent created successfully");
                 Swal.fire({
                                     title: 'Create Rent!',
                                     text: 'Rent created successfully',
@@ -113,11 +111,11 @@ const CreateRent = () => {
                 </select>
 
                 <label>Days:</label>
-                <input type="number" value={days} onChange={(e) => setDays(e.target.value)} placeholder="Ingrese los dias"/>
+                <input type="number" value={days} onChange={(e) => setDays(e.target.value)} placeholder="Ingrese los dias" required/>
                 <label>Price:</label>
-                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Ingrese el precio"/>
+                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Ingrese el precio" required/>
                 <label>Total:</label>
-                <input type="number" value={total} readOnly onChange={(e) => setTotal(e.target.value)} /> 
+                <input type="number" value={total} readOnly onChange={(e) => setTotal(e.target.value)} required/> 
                 <Link to="/rent" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >          
                      Cancelar
                 </Link>

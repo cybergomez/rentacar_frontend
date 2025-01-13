@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const URI = "http://localhost:8080/api/cars";
 
@@ -26,11 +27,17 @@ const SearchCar = ({ onSearch }) => {
       })
       .catch((err) => {
         if (err.response.status === 404) {
-          alert("No existe el carro buscado");
+
+          Swal.fire({
+            title: 'Search Car!',
+            text: 'No existe el carro buscado',
+            icon: 'warning',
+            confirmButtonText: 'Aceptar'
+          });
+          return;
         }
         else {
           console.log(err);
-
         }
 
       })

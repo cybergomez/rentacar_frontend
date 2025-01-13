@@ -81,8 +81,14 @@ const UpdateRent = () => {
         getRentById();
         getCars();
         getPersons();
-
+       
     }, []);
+
+    useEffect(() => {
+        const totalRenta = price * days;
+        setTotal(totalRenta);
+
+    },[price, days]);
 
     const getRentById = async () => {
         
@@ -127,11 +133,11 @@ const UpdateRent = () => {
                 </select>
 
                 <label>Days:</label>
-                <input type="number" value={days} onChange={(e) => setDays(e.target.value)} />
+                <input type="number" value={days} onChange={(e) => setDays(e.target.value)} required/>
                 <label>Price:</label>
-                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} />
+                <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required/>
                 <label>Total:</label>
-                <input type="number" value={total} readOnly onChange={(e) => setTotal(e.target.value)} />
+                <input type="number" value={total} readOnly onChange={(e) => setTotal(e.target.value)} required/>
                 <Link to="/rent" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded" >
                     Cancelar
                 </Link>
