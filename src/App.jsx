@@ -10,8 +10,6 @@ import DeleteCar from './pages/Cars/DeleteCar';
 import CreatePerson from './pages/Persons/CreatePerson';
 import UpdatePerson from './pages/Persons/UpdatePerson';
 import DeletePerson from './pages/Persons/DeletePerson';
-
-
 import Rent from './pages/Rent';
 import CreateRent from './pages/Rent/CreateRent';
 

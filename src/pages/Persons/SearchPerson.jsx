@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const URI = "http://localhost:8080/api/persons/getAll";
+const URI = "http://localhost:8080/api/persons";
 
 const SearchPerson = ({ onSearch }) => {
 
@@ -16,7 +16,7 @@ const SearchPerson = ({ onSearch }) => {
 
   const getPersons = async () => {  
    
-      const endpoint = name.trim() === '' ? URI : `${URI}/findbyname/${name}`;
+      const endpoint = name.trim() === '' ? `${URI}/getAll` : `${URI}/findByNameContaining/${name}`;
     
       await axios
         .get(endpoint)

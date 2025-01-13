@@ -2,7 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import DeletePerson from "./DeletePerson.jsx";
 
-const TablePersons = ({ persons }) => {
+const TablePersons = ({ persons, onDelete}) => {
+
+    const handleDelete = (personId) => {
+        console.log("Sending by delete button:", personId) // Remove in production
+        onDelete(personId);
+    };
 
     if (persons.length < 0){
         return <h2>No existen personas !!!</h2>

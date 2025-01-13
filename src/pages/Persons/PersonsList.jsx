@@ -12,6 +12,11 @@ const PersonsList = () => {
     const [person, setPerson] = useState([]);
     const [personList, setPersonList] = useState([]);
 
+    const handleDelete = (personId) => {
+        console.log("Sending by table:", personId, person) // Remove in production
+        const updatedPersons = person.filter((c) => c.id !== personId);
+        setPerson(updatedPersons);
+    };
 
     if (person.length < 0){
         return <h2>No existen personas !!!</h2>
