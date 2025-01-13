@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const URI = "http://localhost:8080/api/rentals";
 const URIcars = "http://localhost:8080/api/cars";
@@ -71,6 +72,12 @@ const CreateRent = () => {
             .then((response) => {
                 //console.log(response.data);
                 alert("Rent created successfully");
+                Swal.fire({
+                                    title: 'Create Rent!',
+                                    text: 'Rent created successfully',
+                                    icon: 'success',
+                                    confirmButtonText: 'Done'
+                                })
                 navigate("/rent");
             })
             .catch((error) => {

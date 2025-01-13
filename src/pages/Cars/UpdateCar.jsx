@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const URI = "http://localhost:8080/api/cars";
 
@@ -24,7 +25,13 @@ const UpdateCar = (props) => {
             })
             .then((response) => {
                 //  console.log(response.data);
-                alert("Car updated successfully");
+                //alert("Car updated successfully");
+                Swal.fire({
+                    title: 'Update Car!',
+                    text: 'Car updated successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                })
                 navigate("/cars");
             })
             .catch((error) => {

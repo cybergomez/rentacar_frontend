@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 const URI = "http://localhost:8080/api/cars";
 
 
@@ -23,7 +25,14 @@ const CreateCar = () => {
             })
             .then((response) => {
                 // console.log(response.data);
-                alert("Car created successfully");
+              //  alert("Car created successfully");
+                Swal.fire({
+                    title: 'Save Car!',
+                    text: 'Car created successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                  })
+
                 navigate("/cars");
             })
             .catch((error) => {

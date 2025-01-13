@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const URI = "http://localhost:8080/api/rentals";
 const URIcars = "http://localhost:8080/api/cars";
@@ -35,7 +36,13 @@ const UpdateRent = () => {
             })
             .then((response) => {
                // console.log(response.data);
-                alert("Rent updated successfully");
+               // alert("Rent updated successfully");
+                Swal.fire({
+                    title: 'Update Rent!',
+                    text: 'Rent updated successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                })                
                 navigate("/rent");
             })
             .catch((error) => {
