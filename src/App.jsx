@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cars from './pages/Cars';
@@ -38,7 +38,6 @@ function App() {
             <Route path="/create-rent" element={<CreateRent />} />
             <Route path="/edit-rent/:id" element={<UpdateRent />} />
             <Route path="/delete-rent/:id" element={<DeleteRent />} />
-
           </Routes>
         </div>
       </div>
