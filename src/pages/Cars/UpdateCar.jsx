@@ -25,8 +25,8 @@ const UpdateCar = (props) => {
       })
       .then(() => {
         Swal.fire({
-          title: 'Update Car!',
-          text: 'Car updated successfully',
+          title: 'Carro actualizado',
+          text: 'Carro actualizado con éxito',
           icon: 'success',
           confirmButtonText: 'Done'
         })

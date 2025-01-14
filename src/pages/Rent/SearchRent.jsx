@@ -26,10 +26,7 @@ const SearchRent = ({ onSearchRent }) => {
         let data = res.data;
         data = Array.isArray(data) ? data : [data];
 
-        console.log(data);
-
         if (data.length === 0 || (data.length === 1 && data[0] === '')) {
-          //alert("No se encontraron resultados.");
           Swal.fire({
             title: 'Sin resultados',
             text: 'No se encontraron rentas para el criterio buscado.',
