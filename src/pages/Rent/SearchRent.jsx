@@ -26,6 +26,7 @@ const SearchRent = ({ onSearchRent }) => {
         let data = res.data;
         data = Array.isArray(data) ? data : [data];
 
+        
         if (data.length === 0 || (data.length === 1 && data[0] === '')) {
           Swal.fire({
             title: 'Sin resultados',
