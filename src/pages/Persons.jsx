@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Persons = () => {
   return (
- /*   <div>
-      <h1>Persons Page</h1>
-      <p>Here you can find information about persons.</p>
-    </div>
-*/
-    <div className='p-5 w-full flex flex-col items-center gap-[20px] justify-start'>
-    <h1>Persons</h1>
-    <p>Here you can find information about persons.</p>
-    <Link to="/create-person" className='btn'><a className="bg-slate-800 darK:bg-slate-200 text-slate-200 darK:text-slate-900 rounded-xl px-5 py-3">New Person</a></Link>
-    <PersonsList />
+    <div className='p-5 w-full'>
+      <div className="grid grid-cols-[auto_max-content] [grid-template-areas:_'title_add'_'small_add']">
+        <h1 className='[grid-area:_title]'>Personas</h1>
+        <small className='[grid-area:_small]'>Encuentra aquí información sobre personas / usarios</small>
+        <Link to="/create-person" className='[grid-area:_add]'><button className='btn-success h-full'>Nueva persona</button></Link>
+      </div>
+      <PersonsList />
     </div>
   );
 };

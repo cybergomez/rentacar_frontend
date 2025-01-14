@@ -27,7 +27,6 @@ const SearchCar = ({ onSearch }) => {
       })
       .catch((err) => {
         if (err.response.status === 404) {
-
           Swal.fire({
             title: 'Search Car!',
             text: 'No existe el carro buscado',
@@ -39,9 +38,7 @@ const SearchCar = ({ onSearch }) => {
         else {
           console.log(err);
         }
-
       })
-
   }
 
   return (

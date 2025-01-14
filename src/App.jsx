@@ -38,7 +38,7 @@ function App() {
             <Route path="/create-rent" element={<CreateRent />} />
             <Route path="/edit-rent/:id" element={<UpdateRent />} />
             <Route path="/delete-rent/:id" element={<DeleteRent />} />
-            
+
           </Routes>
         </div>
       </div>
