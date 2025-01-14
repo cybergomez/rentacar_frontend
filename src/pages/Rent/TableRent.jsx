@@ -19,11 +19,12 @@ const TableRent = ({ rents, cars, users, onDeleteRent }) => {
           <thead>
             <tr>
               <th className='px-4 py-3'>ID</th>
-              <th className='px-4 py-3'>User</th>
-              <th className='px-4 py-3'>Car</th>
-              <th className='px-4 py-3'>Days</th>
-              <th className='px-4 py-3'>Price</th>
+              <th className='px-4 py-3'>Usuario</th>
+              <th className='px-4 py-3'>Vehículo</th>
+              <th className='px-4 py-3'>Dias</th>
+              <th className='px-4 py-3'>Precio</th>
               <th className='px-4 py-3'>Total</th>
+              <th className='px-4 py-3'>Acciones</th>
             </tr>
           </thead>
           <tbody>

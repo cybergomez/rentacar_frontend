@@ -11,10 +11,10 @@ const DeleteRent = ({ rentId, onDeleteRent }) => {
             try {
                 await axios.delete(`${URI}/${rentId}`);
                 Swal.fire({
-                    title: 'Delete Rent!',
+                    title: 'Renta Eliminada !',
                     text: 'El registro se borró satisfactoriamente',
                     icon: 'success',
-                    confirmButtonText: 'Done'
+                    confirmButtonText: 'Listo'
                 })
                 onDeleteRent(rentId);
             } catch (error) {
@@ -29,7 +29,7 @@ const DeleteRent = ({ rentId, onDeleteRent }) => {
             className="btn-danger"
             onClick={() => deleteRent(rentId)}
         >
-            Delete Rent 
+            Eliminar Renta 
         </button>
     );
 

@@ -71,10 +71,10 @@ const CreateRent = () => {
             })
             .then((response) => {
                 Swal.fire({
-                                    title: 'Create Rent!',
-                                    text: 'Rent created successfully',
+                                    title: 'Renta Creada!',
+                                    text: 'Renta creada satisfactoriamente',
                                     icon: 'success',
-                                    confirmButtonText: 'Done'
+                                    confirmButtonText: 'Listo'
                                 })
                 navigate("/rent");
             })
@@ -88,11 +88,11 @@ const CreateRent = () => {
 
   return (
     <div>
-            <h1>New Rent</h1>
+            <h1>Nueva Renta</h1>
             <form onSubmit={saveRent}>
-                <label>Person:</label>
+                <label>Persona:</label>
                 <select value={user} onChange={(e) => setUser(e.target.value)}>
-                <option value="">Select a person</option>
+                <option value="">Seleccione una persona</option>
                 { persons.map((item) => (
                     <option key={item.id} value={item.id}>
                     {item.name}
@@ -100,9 +100,9 @@ const CreateRent = () => {
                 ))}
                 </select>
 
-                <label>Car:</label>
+                <label>Vehículo:</label>
                 <select value={car} onChange={(e) => setCar(e.target.value)}>
-                <option value="">Select a car</option>
+                <option value="">Seleccione un vehículo</option>
                 {cars.map((item) => (
                     <option key={item.id} value={item.id}>
                     {item.name}
@@ -110,9 +110,9 @@ const CreateRent = () => {
                 ))}
                 </select>
 
-                <label>Days:</label>
+                <label>Días:</label>
                 <input type="number" value={days} onChange={(e) => setDays(e.target.value)} placeholder="Ingrese los dias" required/>
-                <label>Price:</label>
+                <label>Precio:</label>
                 <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="Ingrese el precio" required/>
                 <label>Total:</label>
                 <input type="number" value={total} readOnly onChange={(e) => setTotal(e.target.value)} required/> 
@@ -120,7 +120,7 @@ const CreateRent = () => {
                      Cancelar
                 </Link>
                 <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border
-                                     border-green-700 rounded" type="submit" >Save Rent</button>
+                                     border-green-700 rounded" type="submit" >Guardar</button>
             </form>
         </div>
 

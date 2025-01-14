@@ -9,7 +9,7 @@ const Rent = () => {
         <h1 className='[grid-area:_title]'>Reporte de Rentas</h1>
         <small className='[grid-area:_small]'>Encuentra aquí información sobre rentas realizadas</small>
         <Link to="/create-rent" className="[grid-area:_add]" >
-          New Rent
+          <button className='btn-sucess h-full'>Registrar Renta</button>          
         </Link>
       </div>
       <RentList />
